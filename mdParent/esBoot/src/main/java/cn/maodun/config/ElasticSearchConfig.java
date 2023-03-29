@@ -31,8 +31,6 @@ import org.springframework.context.annotation.Configuration;
 @ConfigurationProperties(prefix = "es")
 @Getter
 @Setter
-@EnableAutoConfiguration(exclude = {ElasticsearchRestClientAutoConfiguration.class})
-@Slf4j
 public class ElasticSearchConfig {
 
     private String host;
@@ -49,15 +47,6 @@ public class ElasticSearchConfig {
 
     @Bean
     public RestHighLevelClient restHighLevelClient() {
-//        String[] usernameAndPassword = xpackSecurityUser.split(":");
-//        final CredentialsProvider credentialsProvider = new BasicCredentialsProvider();
-//        credentialsProvider.setCredentials(AuthScope.ANY,
-//                new UsernamePasswordCredentials(usernameAndPassword[0], usernameAndPassword[1]));
-//        return new RestHighLevelClient(RestClient.builder(new HttpHost(getHost(), 9200, "http"))
-//                .setHttpClientConfigCallback(httpAsyncClientBuilder -> {
-//                    httpAsyncClientBuilder.disableAuthCaching();
-//                    return httpAsyncClientBuilder.setDefaultCredentialsProvider(credentialsProvider);
-//                }));
         return new RestHighLevelClient(RestClient.builder(new HttpHost(getHost(), getPort(), "http")));
     }
 
