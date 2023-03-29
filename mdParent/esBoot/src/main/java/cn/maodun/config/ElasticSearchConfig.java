@@ -1,16 +1,14 @@
 package cn.maodun.config;
 
+import cn.maodun.service.EsService;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.http.HttpHost;
-import org.apache.http.auth.AuthScope;
-import org.apache.http.auth.UsernamePasswordCredentials;
-import org.apache.http.client.CredentialsProvider;
-import org.apache.http.impl.client.BasicCredentialsProvider;
 import org.elasticsearch.client.RestClient;
 import org.elasticsearch.client.RestHighLevelClient;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnBean;
 import org.springframework.boot.autoconfigure.elasticsearch.ElasticsearchRestClientAutoConfiguration;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Bean;
@@ -51,15 +49,21 @@ public class ElasticSearchConfig {
 
     @Bean
     public RestHighLevelClient restHighLevelClient() {
-        String[] usernameAndPassword = xpackSecurityUser.split(":");
-        final CredentialsProvider credentialsProvider = new BasicCredentialsProvider();
-        credentialsProvider.setCredentials(AuthScope.ANY,
-                new UsernamePasswordCredentials(usernameAndPassword[0], usernameAndPassword[1]));
-        return new RestHighLevelClient(RestClient.builder(new HttpHost(getHost(), 9200, "http"))
-                .setHttpClientConfigCallback(httpAsyncClientBuilder -> {
-                    httpAsyncClientBuilder.disableAuthCaching();
-                    return httpAsyncClientBuilder.setDefaultCredentialsProvider(credentialsProvider);
-                }));
+//        String[] usernameAndPassword = xpackSecurityUser.split(":");
+//        final CredentialsProvider credentialsProvider = new BasicCredentialsProvider();
+//        credentialsProvider.setCredentials(AuthScope.ANY,
+//                new UsernamePasswordCredentials(usernameAndPassword[0], usernameAndPassword[1]));
+//        return new RestHighLevelClient(RestClient.builder(new HttpHost(getHost(), 9200, "http"))
+//                .setHttpClientConfigCallback(httpAsyncClientBuilder -> {
+//                    httpAsyncClientBuilder.disableAuthCaching();
+//                    return httpAsyncClientBuilder.setDefaultCredentialsProvider(credentialsProvider);
+//                }));
+        return new RestHighLevelClient(RestClient.builder(new HttpHost(getHost(), getPort(), "http")));
     }
 
+    @Bean
+    @ConditionalOnBean(RestHighLevelClient.class)
+    public EsService esService(){
+        return new EsService();
+    }
 }
