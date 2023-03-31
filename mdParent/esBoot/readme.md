@@ -49,6 +49,7 @@ autoconfiguration --> https://docs.spring.io/spring-boot/docs/2.5.14/reference/h
     }
 }
       ```
+映射创建完成后 添加字段后怎么处理？
 3. 分片数量一开始就定义好后不能修改。可以修改副本数量 来增加查询速度。另外 随着节点的增加和删除 分片会重新分配给各个节点。
 4. 路由计算 share=hash(routing)%number_of_primary_shards。因此分片数量确定好了 就不能修改。因为会导致之前的数据路由错误了。由于有路由计算 所以所有的节点都可以有能力知道数据在哪个分片上面。
    1. 我们发送请求最好应该轮询所有的节点。
