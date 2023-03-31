@@ -54,4 +54,4 @@ autoconfiguration --> https://docs.spring.io/spring-boot/docs/2.5.14/reference/h
 4. 路由计算 share=hash(routing)%number_of_primary_shards。因此分片数量确定好了 就不能修改。因为会导致之前的数据路由错误了。由于有路由计算 所以所有的节点都可以有能力知道数据在哪个分片上面。
    1. 我们发送请求最好应该轮询所有的节点。
 5. 写请求：当写请求发送到任意一个节点 路由计算后转发给相应节点，然后复制给副本后。向协调节点报告 然后返回给客户端状态。
-6. 
+6. haha
