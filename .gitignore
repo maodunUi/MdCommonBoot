@@ -5,3 +5,14 @@ target/
 *.class
 /.idea/
 *.iml
+/target-const
+/target-remote
+/target-support
+
+# Package Files #
+*.jar
+*.war
+*.ear
+
+# Mobile Tools for Java (J2ME)
+.mtj.tmp/
