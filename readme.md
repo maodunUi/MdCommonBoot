@@ -70,4 +70,8 @@ https://mp.weixin.qq.com/s/QufXfnJj5kPX8K3M5gICqw
 
 
 ### 分库分表
+https://tech.meituan.com/2016/11/18/dianping-order-db-sharding.html
+
+分库分表后数据迁移：
+不停机：在线双写
 
