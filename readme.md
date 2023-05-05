@@ -109,3 +109,50 @@ saveOrUpdate
 existsByCondition
 countByCondition
 
+### business
+用户
+渠道：100 （bs_channel）
+店员：200+ (bs_saleman)
+
+前端会员：5500+ （通过微信引入的） bs_member
+大客户：100 bs_client nb_customer
+app端：100 sl_union_account
+
+订单：
+回收单 0.2bill
+付款单：0.05bill
+闪优优ml_order:1000
+实时竞拍：4000
+app:5000
+售后：100
+出库：3500
+
+服务：
+业务服务：
+shanhs-fast-gateway 40
+shs-open-platform-gateway 15
+shs-fast-bid-api 40
+offline-sapi 40
+sales-app-api	15
+shs-pay-api	15
+bi-center 25
+
+redis
+es
+rocktemq
+mysql
+
+接口：
+
+架构：
+整体技术：
+springCloud nacos rocketmq xxx-job es redis mysql jooq
+网关设计：
+k8s设计：
+环境：
+dev test pre pro
+云环境：
+华为云
+阿里云
+
+
