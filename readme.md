@@ -75,3 +75,37 @@ https://tech.meituan.com/2016/11/18/dianping-order-db-sharding.html
 分库分表后数据迁移：
 不停机：在线双写
 
+
+### 命名
+方法命名：参考：ExtendDAOImpl
+增(create insert save)
+save(T t)
+save(List<T> t)
+删(delete)
+deleteById
+deleteAll
+deleteByIds
+deleteByCondition
+改(update)
+update(T t)
+update(List<T> t)
+
+
+查(get find select search)
+getById
+getAll
+getByIds
+getByCondition
+getOneByCondition
+
+getDetailById
+getDetailAll
+getDetailByIds
+getDetailByCondition
+getOneDetailByCondition
+
+其他：
+saveOrUpdate
+existsByCondition
+countByCondition
+
