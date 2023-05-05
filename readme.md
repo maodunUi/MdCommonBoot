@@ -143,6 +143,21 @@ rocktemq
 mysql
 
 接口：
+offline-sapi:
+/v1/product/inquiryMessage/getActMessage 11w/15min
+/v1/common/getShsSystemDataInfo 5.5w/15min
+/v2/channelConfig/getChannelConfigEntity 4w/15min
+/v2/channelConfig/getChannelAllConfig  2.5w/15min
+/v1/productOrder/getAutoCheckOrder  2.5w/15min
+/bs-msg-center-item/get-msg-count 2w/15min
+
+shs-sapi:询价
+/sapi/offline/offlineCal 8500/15min
+
+sql:调用
+offline-sapi:3.5w/min
+redis：调用
+offline-sapi:3000/min
 
 架构：
 整体技术：
@@ -154,5 +169,13 @@ dev test pre pro
 云环境：
 华为云
 阿里云
+
+
+arms:
+应用监控：
+shanhs-fast-gateway:2000
+offline-sapi:1000/s
+15min:1000K
+shs-fast-bid-api:600
 
 
