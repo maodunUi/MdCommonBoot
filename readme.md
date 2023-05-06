@@ -154,6 +154,18 @@ offline-sapi:
 shs-sapi:询价
 /sapi/offline/offlineCal 8500/15min
 
+offline-sapi:国庆
+最高峰流量：每秒4200请求
+扩容后副本数：100
+单副本分配内存：200G
+高频接口每秒请求数：
+/v1/product/inquiryMessage/getMessageData  170*5 QPS
+/v1/productOrder/getAutoCheckOrder         58*5 QPS
+/v1/common/getShsSystemDataInfo            40*5 QPS
+/preposeRecycleOrder/findAuditOrderList    30*5 QPS
+/v2/channelConfig/getChannelConfigEntity   20*5 QPS
+/v1/salesman/center                        16*5 QPS
+
 sql:调用
 offline-sapi:3.5w/min
 redis：调用
