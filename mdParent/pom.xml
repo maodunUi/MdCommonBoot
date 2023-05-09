@@ -12,8 +12,8 @@
         <module>esBoot</module>
         <module>mdCommon</module>
         <module>shardJdbcCommon</module>
+        <module>MdDao</module>
     </modules>
-
     <!--spring-boot-starter-parent-->
     <!--
     spring-boot-dependencies
@@ -71,28 +71,71 @@
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
-            <version>5.1.47</version>
+            <version>8.0.29</version>
         </dependency>
 
 
 
-        <dependency>
-            <groupId>com.baomidou</groupId>
-            <artifactId>mybatis-plus-boot-starter</artifactId>
-            <version>3.1.0</version>
-        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>com.baomidou</groupId>-->
+<!--            <artifactId>mybatis-plus-boot-starter</artifactId>-->
+<!--            <version>3.1.0</version>-->
+<!--        </dependency>-->
 
-        <dependency>
-            <groupId>com.baomidou</groupId>
-            <artifactId>mybatis-plus-generator</artifactId>
-            <version>3.1.0</version>
-        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>com.baomidou</groupId>-->
+<!--            <artifactId>mybatis-plus-generator</artifactId>-->
+<!--            <version>3.1.0</version>-->
+<!--        </dependency>-->
 
-        <dependency>
-            <groupId>org.mybatis</groupId>
-            <artifactId>mybatis-typehandlers-jsr310</artifactId>
-            <version>1.0.2</version>
-        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>org.mybatis</groupId>-->
+<!--            <artifactId>mybatis-typehandlers-jsr310</artifactId>-->
+<!--            <version>1.0.2</version>-->
+<!--        </dependency>-->
     </dependencies>
 
+
+    <build>
+            <plugins>
+                <plugin>
+                    <groupId>com.shanhs</groupId>
+                    <artifactId>shanhs-simple-codegen</artifactId>
+                    <version>1.1.2-SNAPSHOT</version>
+                </plugin>
+                <plugin>
+                    <groupId>org.jooq</groupId>
+                    <artifactId>jooq-codegen-maven</artifactId>
+                    <version>3.12.3</version>
+                    <configuration>
+                        <jdbc>
+                            <driver>com.mysql.cj.jdbc.Driver</driver>
+                            <url>jdbc:mysql://localhost:3306/demo</url>
+                            <user>root</user>
+                            <password>root</password>
+                        </jdbc>
+                        <generator>
+                                <name>codegen.CustomFullJavaGenerator</name>
+                                <strategy>
+                                    <name>codegen.CustomGeneratorStrategy</name>
+                                </strategy>
+                            <generate>
+                                <pojos>true</pojos>
+                                <interfaces>true</interfaces>
+                                <daos>true</daos>
+                                <springAnnotations>true</springAnnotations>
+                            </generate>
+                            <database>
+                                <includes>(book)</includes>
+                                <inputSchema>demo</inputSchema>
+                            </database>
+                            <target>
+                                <packageName>cn.maodun.jooq</packageName>
+                                <directory>target/generated-sources/src/main/java</directory>
+                            </target>
+                        </generator>
+                    </configuration>
+                </plugin>
+            </plugins>
+    </build>
 </project>
