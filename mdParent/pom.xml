@@ -15,6 +15,7 @@
         <module>MdDao</module>
         <module>MdMvc</module>
         <module>MdModel</module>
+        <module>MdValid</module>
     </modules>
     <!--spring-boot-starter-parent-->
     <!--
