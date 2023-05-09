@@ -13,6 +13,8 @@
         <module>mdCommon</module>
         <module>shardJdbcCommon</module>
         <module>MdDao</module>
+        <module>MdMvc</module>
+        <module>MdModel</module>
     </modules>
     <!--spring-boot-starter-parent-->
     <!--
