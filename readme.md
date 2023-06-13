@@ -197,3 +197,11 @@ springboot项目添加maven 可以直接校验
    <groupId>org.springframework.boot</groupId>
    <artifactId>spring-boot-starter-validation</artifactId>
 </dependency>
+
+分层：
+DO（Data Object）：此对象与数据库表结构一一对应，通过 DAO 层向上传输数据源对象(model,pojo,entity)
+DTO（Data Transfer Object）：数据传输对象，Service 或 Manager 向外传输的对象。
+BO（Business Object）：业务对象，可以由 Service 层输出的封装业务逻辑的对象。
+query:   数据查询对象，各层接收上层的查询请求。注意超过 2 个参数的查询封装，禁止使用 Map 类 来传输。
+   用来参数校验
+VO（View Object）：显示层对象，通常是 Web 向模板渲染引擎层传输的对象
