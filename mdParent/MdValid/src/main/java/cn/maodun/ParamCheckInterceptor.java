@@ -40,8 +40,6 @@ public class ParamCheckInterceptor implements HandlerInterceptor, ApplicationCon
                     if (Objects.nonNull(annotation)) {
                         String name = field.getName();
                         String value = request.getParameter(name);
-                        String rule = annotation.rule();
-                        String msg = annotation.msg();
                         Map<String, RuleStrategy> beansOfType = applicationContext.getBeansOfType(RuleStrategy.class);
                         Collection<RuleStrategy> ruleStrategys = beansOfType.values();
                         ruleStrategys.stream().forEach(r -> {
