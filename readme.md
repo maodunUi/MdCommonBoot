@@ -190,4 +190,10 @@ offline-sapi:1000/s
 15min:1000K
 shs-fast-bid-api:600
 
-
+### 参数校验
+https://www.jianshu.com/p/67d3637493c7
+springboot项目添加maven 可以直接校验
+<dependency>
+   <groupId>org.springframework.boot</groupId>
+   <artifactId>spring-boot-starter-validation</artifactId>
+</dependency>
