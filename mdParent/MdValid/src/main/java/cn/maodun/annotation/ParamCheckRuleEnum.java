@@ -8,4 +8,6 @@ public interface ParamCheckRuleEnum {
 
     String NONULL = "NONULL";
 
+    String PATTERN = "PATTERN";
+
 }

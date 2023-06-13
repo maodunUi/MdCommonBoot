@@ -9,7 +9,7 @@ import java.util.Objects;
  * @date 2022/8/2
  */
 @Service
-public class NoNullRuleStrategy implements RuleStrategy{
+public class NoNullRuleStrategy implements RuleStrategy {
 
     @Override
     public String getRuleName() {
@@ -17,10 +17,10 @@ public class NoNullRuleStrategy implements RuleStrategy{
     }
 
     @Override
-    public void rule(Object o, String ruleName, String msg) {
-        if (Objects.equals(getRuleName(),ruleName)){
-            if (Objects.isNull(o)){
-                throw new RuntimeException(msg);
+    public void rule(Object o, ParamCheck annotation) {
+        if (Objects.equals(getRuleName(), annotation.rule())) {
+            if (Objects.isNull(o)) {
+                throw new RuntimeException(annotation.msg());
             }
         }
     }

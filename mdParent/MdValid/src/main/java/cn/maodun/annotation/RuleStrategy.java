@@ -6,5 +6,5 @@ package cn.maodun.annotation;
  */
 public interface RuleStrategy {
     String getRuleName() ;
-    void rule(Object o,String ruleName,String msg) ;
+    void rule(Object o,ParamCheck annotation) ;
 }

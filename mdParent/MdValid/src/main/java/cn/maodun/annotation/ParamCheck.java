@@ -12,5 +12,8 @@ import java.lang.annotation.*;
 @Documented
 public @interface ParamCheck {
     String rule() default "";
+
     String msg() default "";
+
+    String patternRegex() default "";
 }
