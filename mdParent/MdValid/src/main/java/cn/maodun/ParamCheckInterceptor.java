@@ -42,7 +42,7 @@ public class ParamCheckInterceptor implements HandlerInterceptor, ApplicationCon
                         String value = request.getParameter(name);
                         Map<String, RuleStrategy> beansOfType = applicationContext.getBeansOfType(RuleStrategy.class);
                         Collection<RuleStrategy> ruleStrategys = beansOfType.values();
-                        ruleStrategys.stream().forEach(r -> {
+                        ruleStrategys.forEach(r -> {
                             r.rule(value, annotation);
                         });
                     }
