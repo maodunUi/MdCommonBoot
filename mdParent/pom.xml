@@ -13,7 +13,7 @@
         <module>mdCommon</module>
         <module>shardJdbcCommon</module>
         <module>MdDao</module>
-        <module>MdMvc</module>
+<!--        <module>MdMvc</module>-->
         <module>MdModel</module>
         <module>MdValid</module>
     </modules>
