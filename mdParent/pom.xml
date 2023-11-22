@@ -13,7 +13,7 @@
         <module>mdCommon</module>
         <module>shardJdbcCommon</module>
         <module>MdDao</module>
-        <module>MdMvc</module>
+<!--        <module>MdMvc</module>-->
         <module>MdModel</module>
         <module>MdValid</module>
     </modules>
@@ -33,30 +33,30 @@
         <maven.compiler.target>8</maven.compiler.target>
 
 
-        <jdbc.test.url>jdbc:mysql://localhost:3306</jdbc.test.url>
-        <jdbc.test.user>root</jdbc.test.user>
-        <jdbc.test.password>root</jdbc.test.password>
+<!--        <jdbc.test.url>jdbc:mysql://47.107.115.43:3306/</jdbc.test.url>-->
+<!--        <jdbc.test.user>xulei</jdbc.test.user>-->
+<!--        <jdbc.test.password>123456</jdbc.test.password>-->
 
 
-        <jdbc.pre.url>jdbc:mysql://localhost:3306</jdbc.pre.url>
-        <jdbc.pre.user>root</jdbc.pre.user>
-        <jdbc.pre.password>root</jdbc.pre.password>
+<!--        <jdbc.pre.url>jdbc:mysql://localhost:3306</jdbc.pre.url>-->
+<!--        <jdbc.pre.user>root</jdbc.pre.user>-->
+<!--        <jdbc.pre.password>root</jdbc.pre.password>-->
 
 
-        <jdbc.dev.url>jdbc:mysql://localhost:3306</jdbc.dev.url>
-        <jdbc.dev.user>root</jdbc.dev.user>
-        <jdbc.dev.password>root</jdbc.dev.password>
+<!--        <jdbc.dev.url>jdbc:mysql://localhost:3306</jdbc.dev.url>-->
+<!--        <jdbc.dev.user>root</jdbc.dev.user>-->
+<!--        <jdbc.dev.password>root</jdbc.dev.password>-->
 
-        <jdbc.pro.url>jdbc:mysql://localhost:3306</jdbc.pro.url>
-        <jdbc.pro.user>root</jdbc.pro.user>
-        <jdbc.pro.password>root</jdbc.pro.password>
+<!--        <jdbc.pro.url>jdbc:mysql://localhost:3306</jdbc.pro.url>-->
+<!--        <jdbc.pro.user>root</jdbc.pro.user>-->
+<!--        <jdbc.pro.password>root</jdbc.pro.password>-->
 
-        <jdbc.url>see-profile</jdbc.url>
-        <jdbc.user>see-profile</jdbc.user>
-        <jdbc.password>see-profile</jdbc.password>
+<!--        <jdbc.url>see-profile</jdbc.url>-->
+<!--        <jdbc.user>see-profile</jdbc.user>-->
+<!--        <jdbc.password>see-profile</jdbc.password>-->
 
-        <jooq.includes>see child</jooq.includes>
-        <jdbc.database>see child module</jdbc.database>
+<!--        <jooq.includes>see child</jooq.includes>-->
+<!--        <jdbc.database>see child module</jdbc.database>-->
     </properties>
 
     <dependencies>
@@ -132,90 +132,92 @@
                     <artifactId>shanhs-simple-codegen</artifactId>
                     <version>1.1.2-SNAPSHOT</version>
                 </plugin>
-                <plugin>
-                    <groupId>org.jooq</groupId>
-                    <artifactId>jooq-codegen-maven</artifactId>
-                    <version>3.12.3</version>
-                    <configuration>
+<!--               -->
+<!--                <plugin>-->
+<!--                    <groupId>org.jooq</groupId>-->
+<!--                    <artifactId>jooq-codegen-maven</artifactId>-->
+<!--                    <version>3.12.3</version>-->
+<!--                    <configuration>-->
+<!--&lt;!&ndash;                        <jdbc>&ndash;&gt;-->
+<!--&lt;!&ndash;                            <driver>com.mysql.cj.jdbc.Driver</driver>&ndash;&gt;-->
+<!--&lt;!&ndash;                            <url>jdbc:mysql://localhost:3306/demo</url>&ndash;&gt;-->
+<!--&lt;!&ndash;                            <user>root</user>&ndash;&gt;-->
+<!--&lt;!&ndash;                            <password>root</password>&ndash;&gt;-->
+<!--&lt;!&ndash;                        </jdbc>&ndash;&gt;-->
+
 <!--                        <jdbc>-->
 <!--                            <driver>com.mysql.cj.jdbc.Driver</driver>-->
-<!--                            <url>jdbc:mysql://localhost:3306/demo</url>-->
-<!--                            <user>root</user>-->
-<!--                            <password>root</password>-->
+<!--                            <url>${jdbc.url}/${jdbc.database}</url>-->
+<!--                            <user>${jdbc.user}</user>-->
+<!--                            <password>${jdbc.password}</password>-->
 <!--                        </jdbc>-->
 
-                        <jdbc>
-                            <driver>com.mysql.cj.jdbc.Driver</driver>
-                            <url>${jdbc.url}/${jdbc.database}</url>
-                            <user>${jdbc.user}</user>
-                            <password>${jdbc.password}</password>
-                        </jdbc>
+<!--                        <generator>-->
+<!--                                <name>codegen.CustomFullJavaGenerator</name>-->
+<!--                                <strategy>-->
+<!--                                    <name>codegen.CustomGeneratorStrategy</name>-->
+<!--                                </strategy>-->
+<!--                            <generate>-->
+<!--                                <pojos>true</pojos>-->
+<!--                                <interfaces>true</interfaces>-->
+<!--                                <daos>true</daos>-->
+<!--                                <springAnnotations>true</springAnnotations>-->
+<!--                            </generate>-->
 
-                        <generator>
-                                <name>codegen.CustomFullJavaGenerator</name>
-                                <strategy>
-                                    <name>codegen.CustomGeneratorStrategy</name>
-                                </strategy>
-                            <generate>
-                                <pojos>true</pojos>
-                                <interfaces>true</interfaces>
-                                <daos>true</daos>
-                                <springAnnotations>true</springAnnotations>
-                            </generate>
-
-                            <database>
-                                <includes>(${jooq.includes})</includes>
-                                <inputSchema>${jdbc.database}</inputSchema>
-                            </database>
-                            <target>
-                                <packageName>cn.maodun.jooq</packageName>
-                                <directory>target/generated-sources/src/main/java</directory>
-                            </target>
-                        </generator>
-                    </configuration>
-                </plugin>
+<!--                            <database>-->
+<!--                                <includes>(${jooq.includes})</includes>-->
+<!--                                <inputSchema>${jdbc.database}</inputSchema>-->
+<!--                            </database>-->
+<!--                            <target>-->
+<!--                                <packageName>cn.maodun.jooq</packageName>-->
+<!--                                <directory>target/generated-sources/src/main/java</directory>-->
+<!--                            </target>-->
+<!--                        </generator>-->
+<!--                    </configuration>-->
+<!--                </plugin>-->
+<!--                -->
             </plugins>
     </build>
 
     <profiles>
-        <profile>
-            <!-- dev环境开发模式 -->
-            <id>dev</id>
-            <activation>
-                <activeByDefault>true</activeByDefault>
-            </activation>
-            <properties>
-                <jdbc.url>${jdbc.dev.url}</jdbc.url>
-                <jdbc.user>${jdbc.dev.user}</jdbc.user>
-                <jdbc.password>${jdbc.dev.password}</jdbc.password>
-            </properties>
-        </profile>
+<!--        <profile>-->
+<!--            &lt;!&ndash; dev环境开发模式 &ndash;&gt;-->
+<!--            <id>dev</id>-->
+<!--            <activation>-->
+<!--                <activeByDefault>true</activeByDefault>-->
+<!--            </activation>-->
+<!--            <properties>-->
+<!--                <jdbc.url>${jdbc.dev.url}</jdbc.url>-->
+<!--                <jdbc.user>${jdbc.dev.user}</jdbc.user>-->
+<!--                <jdbc.password>${jdbc.dev.password}</jdbc.password>-->
+<!--            </properties>-->
+<!--        </profile>-->
         <profile>
             <!-- 测试环境 -->
             <id>test</id>
             <properties>
-                <jdbc.url>${jdbc.test.url}</jdbc.url>
-                <jdbc.user>${jdbc.test.user}</jdbc.user>
-                <jdbc.password>${jdbc.test.password}</jdbc.password>
+                <jdbc.url>jdbc:mysql://47.107.115.43:3306/</jdbc.url>
+                <jdbc.user>xulei</jdbc.user>
+                <jdbc.password>123456</jdbc.password>
             </properties>
         </profile>
-        <profile>
-            <!-- 预发布环境  -->
-            <id>pre</id>
-            <properties>
-                <jdbc.url>${jdbc.pre.url}</jdbc.url>
-                <jdbc.user>${jdbc.pre.user}</jdbc.user>
-                <jdbc.password>${jdbc.pre.password}</jdbc.password>
-            </properties>
-        </profile>
-        <profile>
-            <!-- 生产环境 -->
-            <id>pro</id>
-            <properties>
-                <jdbc.url>${jdbc.pro.url}</jdbc.url>
-                <jdbc.user>${jdbc.pro.user}</jdbc.user>
-                <jdbc.password>${jdbc.pro.password}</jdbc.password>
-            </properties>
-        </profile>
+<!--        <profile>-->
+<!--            &lt;!&ndash; 预发布环境  &ndash;&gt;-->
+<!--            <id>pre</id>-->
+<!--            <properties>-->
+<!--                <jdbc.url>${jdbc.pre.url}</jdbc.url>-->
+<!--                <jdbc.user>${jdbc.pre.user}</jdbc.user>-->
+<!--                <jdbc.password>${jdbc.pre.password}</jdbc.password>-->
+<!--            </properties>-->
+<!--        </profile>-->
+<!--        <profile>-->
+<!--            &lt;!&ndash; 生产环境 &ndash;&gt;-->
+<!--            <id>pro</id>-->
+<!--            <properties>-->
+<!--                <jdbc.url>${jdbc.pro.url}</jdbc.url>-->
+<!--                <jdbc.user>${jdbc.pro.user}</jdbc.user>-->
+<!--                <jdbc.password>${jdbc.pro.password}</jdbc.password>-->
+<!--            </properties>-->
+<!--        </profile>-->
     </profiles>
 </project>
