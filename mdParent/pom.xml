@@ -195,6 +195,9 @@
         <profile>
             <!-- 测试环境 -->
             <id>test</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
             <properties>
                 <jdbc.url>jdbc:mysql://47.107.115.43:3306/</jdbc.url>
                 <jdbc.user>xulei</jdbc.user>
